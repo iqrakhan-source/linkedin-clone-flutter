@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:linkednc/screens/profile/profile_post.dart';
+import 'package:linkednc/screens/profile/post_card.dart';
 
 import 'package:linkednc/data/dummy/dummy_data.dart';
 class HomeScreen extends StatefulWidget{
@@ -21,7 +21,7 @@ class _HomeScreen extends State<HomeScreen>{
         //physics: const NeverScrollableScrollPhysics(),
         itemCount: posts.length,
         itemBuilder: (context, index) {
-          return Posts(
+          return PostCard(
             post: posts[index],
           );
         },

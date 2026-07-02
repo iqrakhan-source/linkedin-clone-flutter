@@ -34,11 +34,11 @@ List<PostModel> posts = <PostModel>[
       author: alex,
       img: "https://picsum.photos/500?random=4",
       likes: 34,
-      postText:"Just completed my Flutter LinkedIn clone!" ,
+      postText:"Just completed my Flutter LinkedIn clone! 🚀 This project has helped me learn widget composition, state management fundamentals, reusable components, and clean project architecture. I'm excited to continue by integrating Firebase and Provider to make the application fully functional. Looking forward to sharing more updates soon!" ,
       comments: 54,
       isLikeCurrentUser: true,
       reposts: 22,
-      time: DateTime.now()),
+      time: DateTime.now().subtract(const Duration(minutes: 12)),),
   PostModel(
       author: cam,
       img: "https://picsum.photos/500?random=5",
@@ -47,7 +47,7 @@ List<PostModel> posts = <PostModel>[
       comments: 74,
       isLikeCurrentUser: true,
       reposts: 44,
-      time: DateTime.now()),
+time: DateTime.now().subtract(const Duration(hours: 2))),
   PostModel(
       author: bethy,
       img: "https://picsum.photos/500?random=6",
@@ -56,5 +56,4 @@ List<PostModel> posts = <PostModel>[
       comments: 64,
       isLikeCurrentUser: true,
       reposts: 23,
-      time: DateTime.now())
-];
+time: DateTime.now().subtract(const Duration(days: 1)),)];
