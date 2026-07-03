@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:linkednc/models/post_model.dart';
-import 'package:linkednc/sheet/send_sheet.dart';
-import 'package:linkednc/widget/post_actions.dart';
-import '../../sheet/comment_sheet.dart';
-import '../../widget/post_header.dart';
-import '../../sheet/repost_sheet.dart';
-import '../../widget/post_stats.dart';
-import 'package:linkednc/widget/expandable_text.dart';
-import 'package:linkednc/widget/comment_list.dart';
-
-
-
+import 'package:linkednc/utils/widget/post_actions.dart';
+import '../../utils/sheet/comment_sheet.dart';
+import '../../utils/sheet/repost_sheet.dart';
+import '../../utils/sheet/send_sheet.dart';
+import '../../utils/widget/post_header.dart';
+import '../../utils/widget/post_stats.dart';
+import 'package:linkednc/utils/widget/expandable_text.dart';
+import 'package:linkednc/utils/widget/comment_list.dart';
 
 
 class PostCard extends StatefulWidget {

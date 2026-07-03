@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linkednc/models/post_model.dart';
-import 'package:linkednc/sheet/post_menu_sheet.dart';
-import '../utils/time_formatter.dart';
+import 'package:linkednc/utils/sheet/post_menu_sheet.dart';
+import '../time_formatter.dart';
 class PostHeader extends StatelessWidget {
   final PostModel post;
 

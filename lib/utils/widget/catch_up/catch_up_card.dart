@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/catchup_model.dart';
+import '../../../models/catchup_model.dart';
 
 class CatchUpCard extends StatelessWidget {
   final CatchUpModel item;

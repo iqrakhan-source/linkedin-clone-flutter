@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/grow/game_model.dart';
+import '../../../models/grow/game_model.dart';
 
 class GameCard extends StatelessWidget {
   final GameModel game;

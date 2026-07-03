@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../data/dummy/catch_up_dummy_data.dart';
-import '../../widget/catch_up/catch_up_card.dart';
-import '../../widget/catch_up/filter_chip.dart';
+import '../../utils/dummy/catch_up_dummy_data.dart';
+import '../../utils/widget/catch_up/catch_up_card.dart';
+import '../../utils/widget/catch_up/filter_chip.dart';
 
 class CatchUpScreen extends StatefulWidget {
   const CatchUpScreen({super.key});

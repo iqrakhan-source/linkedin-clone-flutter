@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:linkednc/widget/comment_list.dart';
-import 'package:linkednc/widget/comment_list.dart';
+import 'package:linkednc/utils/widget/comment_list.dart';
+import 'package:linkednc/utils/widget/comment_list.dart';
 
 Future<String?> openCommentSheet(BuildContext context, List<String> comments,) {
 

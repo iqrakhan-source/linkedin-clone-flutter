@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/profile/post_card.dart';
+import '../../screens/profile/post_card.dart';
 import 'linkedin_social_button.dart';
 
 class PostActions extends StatelessWidget {

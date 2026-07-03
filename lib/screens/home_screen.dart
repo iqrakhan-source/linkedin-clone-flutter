@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:linkednc/screens/profile/post_card.dart';
 
-import 'package:linkednc/data/dummy/dummy_data.dart';
+import 'package:linkednc/utils/dummy/dummy_data.dart';
 class HomeScreen extends StatefulWidget{
   const HomeScreen({super.key});
   @override
