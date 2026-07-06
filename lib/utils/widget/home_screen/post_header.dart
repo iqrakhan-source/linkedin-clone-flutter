@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linkednc/models/post_model.dart';
 import 'package:linkednc/utils/sheet/post_menu_sheet.dart';
-import '../time_formatter.dart';
+import 'time_formatter.dart';
 class PostHeader extends StatelessWidget {
   final PostModel post;
 
@@ -69,10 +69,9 @@ class PostHeader extends StatelessWidget {
           ),
 
           IconButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert,size: 20,),
             onPressed: () async {
               final result = await openPostMenu(context);
-
               // for now just debug
               debugPrint("Selected: $result");
             },

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../screens/profile/post_card.dart';
 import 'linkedin_social_button.dart';
 
 class PostActions extends StatelessWidget {
@@ -8,6 +7,10 @@ class PostActions extends StatelessWidget {
   final VoidCallback onComment;
   final VoidCallback onRepost;
   final VoidCallback onSend;
+  final int likes;
+  final int comments;
+  final int reposts;
+
 
   const PostActions({
     super.key,
@@ -16,47 +19,62 @@ class PostActions extends StatelessWidget {
     required this.onComment,
     required this.onRepost,
     required this.onSend,
+    required this.likes,
+    required this.comments,
+    required this.reposts,
+
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 6),
-      child: Row(
-        children: [
-          LinkedInSocialButton(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: .min,
+      children: [
+        SizedBox(
+          width: 60,
+          child: LinkedInSocialButton(
             inactiveIcon: Icons.thumb_up_alt_outlined,
             activeIcon: Icons.thumb_up_alt,
-            label: "Like",
+            label: "$likes",
             isActive: isLiked,
             onTap: onLike,
           ),
+        ),
 
-          LinkedInSocialButton(
+        SizedBox(
+          width: 60,
+          child: LinkedInSocialButton(
             inactiveIcon: Icons.comment_outlined,
             activeIcon: Icons.comment,
-            label: "Comment",
+            label: "$comments",
             isActive: false,
             onTap: onComment,
           ),
+        ),
 
-          LinkedInSocialButton(
+        SizedBox(
+          width: 60,
+          child: LinkedInSocialButton(
             inactiveIcon: Icons.repeat,
             activeIcon: Icons.repeat,
-            label: "Repost",
+            label: " $reposts ",
             isActive: false,
             onTap: onRepost,
           ),
+        ),
 
-          LinkedInSocialButton(
+        SizedBox(
+          width: 60,
+          child: LinkedInSocialButton(
             inactiveIcon: Icons.send_outlined,
             activeIcon: Icons.send,
-            label: "Send",
+            label: "",
             isActive: false,
             onTap: onSend,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

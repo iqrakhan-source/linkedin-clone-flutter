@@ -15,13 +15,12 @@ class TileVert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, size: 22, color: Colors.black87),
+      leading: Icon(icon,  size: 18, color: Colors.black87),
       title: Text(
         text,
-        style: const TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w400,
-        ),
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w500,)
       ),
       onTap: onTap,
       dense: true,

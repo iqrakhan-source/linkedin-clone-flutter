@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../models/grow/connection_model.dart';
+
 class NotificationPage extends StatefulWidget {
-  const NotificationPage({super.key});
+  final List<ConnectionModel> data;
+  const NotificationPage({super.key, required this.data} );
 
   @override
   State<NotificationPage> createState() => _NotificationPageState();
@@ -46,7 +49,7 @@ class _NotificationPageState extends State<NotificationPage> {
             child: ListView.builder(
               padding: const EdgeInsets.all(12),
               itemCount: 15,
-              itemBuilder: (context, index) {
+              itemBuilder: (context,index){
                 return Card(
                   color: Colors.white,
                   margin: const EdgeInsets.only(bottom: 10),

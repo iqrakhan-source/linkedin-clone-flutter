@@ -1,13 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:linkednc/models/post_model.dart';
-import 'package:linkednc/utils/widget/post_actions.dart';
+import 'package:linkednc/utils/widget/home_screen/post_actions.dart';
 import '../../utils/sheet/comment_sheet.dart';
 import '../../utils/sheet/repost_sheet.dart';
 import '../../utils/sheet/send_sheet.dart';
-import '../../utils/widget/post_header.dart';
-import '../../utils/widget/post_stats.dart';
-import 'package:linkednc/utils/widget/expandable_text.dart';
-import 'package:linkednc/utils/widget/comment_list.dart';
+import '../../utils/widget/home_screen/post_header.dart';
+import 'package:linkednc/utils/widget/home_screen/expandable_text.dart';
 
 
 class PostCard extends StatefulWidget {
@@ -64,33 +63,27 @@ class _Posts extends State<PostCard>{
           ),
 
           // 2. Post Body Text
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 8,
-            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                12,
+                4,
+                12,
+                6,
+              ),
             child: ExpandableText(
               text: widget.post.postText,
             ),
           ),
 
           // Image
-          Container(
-            width: double.infinity,
-            height: 220,
-            color: Colors.grey.shade200,
-            child: Image.network(widget.post.img,
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Image.network(
+              widget.post.img,
               fit: BoxFit.cover,
             ),
           ),
 
-          //Social Panel
-          PostStats(
-            likes: _likeCount,
-            comments: _comments.length,
-           //b reposts: widget.post.reposts,
-            reposts: _repostCount,
-          ),
 
           const Divider(height: 1, thickness: 0.5),
 
@@ -127,6 +120,10 @@ class _Posts extends State<PostCard>{
               }
             },
             onSend: () => openSendSheet(context),
+            likes: _likeCount,
+            comments: _comments.length,
+            //b reposts: widget.post.reposts,
+            reposts: _repostCount,
           ),
 
           //comment list

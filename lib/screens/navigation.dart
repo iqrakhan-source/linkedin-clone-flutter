@@ -47,12 +47,16 @@ class _navigation extends State<navigation> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         scrolledUnderElevation: 0.0,
-        leadingWidth: 70,
+        leadingWidth: 60,
         leading: Builder(
           builder: (context) => GestureDetector(
             onTap: () => Scaffold.of(context).openDrawer(),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(
+                left: 12,
+                top: 6,
+                bottom: 6,
+              ),
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.cyan,
@@ -61,28 +65,49 @@ class _navigation extends State<navigation> {
             ),
           ),
         ),
-        title: Container(
-          height: 40,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4)),
+        titleSpacing: 4,
+        title: SizedBox(
+          height: 34,
           child: TextFormField(
             decoration: InputDecoration(
-              hintText: 'Search',
-              hintStyle: const TextStyle(color: Colors.black54, fontSize: 16),
-              prefixIcon: const Icon(Icons.search, color: Colors.black54),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20)
+              hintText: "Search",
+              hintStyle: const TextStyle(
+                fontSize: 14,
+                color: Colors.black54,
               ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 10),
+              prefixIcon: const Icon(
+                Icons.search,
+                size: 20,
+                color: Colors.black54,
+              ),
+              filled: true,
+              fillColor: const Color(0xFFEFEFE),
+              contentPadding: EdgeInsets.zero,
+
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18),
+                borderSide: BorderSide.none,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18),
+                //borderSide:.lerp(a, b, t)
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(18),
+                borderSide: BorderSide.none,
+              ),
             ),
           ),
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.message_rounded, color: Colors.black54),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder:(context) => const Message()));
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+              icon: const Icon(Icons.message_rounded, color: Colors.black54),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context) => const Message()));
+              },
+            ),
           ),
         ],
       ),
@@ -101,7 +126,7 @@ class _navigation extends State<navigation> {
                     backgroundColor: Colors.cyan,
                     backgroundImage: AssetImage("assets/images/profileman.png"),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 10),
                   Text(
                     'Jhonny Doe',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),

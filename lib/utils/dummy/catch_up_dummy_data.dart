@@ -1,19 +1,39 @@
-import '../../models/catchup_model.dart';
+import '../../models/catch_up/catchup_model.dart';
 
 final List<CatchUpModel> catchUpDummyData = [
   CatchUpModel(
-    name: "Aman Verma",
+    name: "Sarah Khan",
     headline: "Flutter Developer",
     type: "Job changes",
+    title: "started a new position",
+    company: "Google",
+    actionText: "Congratulate",
   ),
+
   CatchUpModel(
-    name: "Sara Khan",
-    headline: "UI/UX Designer",
+    name: "Aman Gupta",
+    headline: "Software Engineer",
     type: "Work anniversaries",
+    title: "is celebrating",
+    duration: "2 years",
+    actionText: "Say Congrats",
   ),
+
   CatchUpModel(
-    name: "John Doe",
-    headline: "Backend Engineer",
-    type: "All",
+    name: "Emily Johnson",
+    headline: "UI/UX Designer",
+    type: "Job changes",
+    title: "started a new position",
+    company: "Microsoft",
+    actionText: "Congratulate",
+  ),
+
+  CatchUpModel(
+    name: "Priya Sharma",
+    headline: "Data Analyst",
+    type: "Work anniversaries",
+    title: "is celebrating",
+    duration: "5 years",
+    actionText: "Say Congrats",
   ),
 ];

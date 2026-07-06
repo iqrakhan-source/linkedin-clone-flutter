@@ -22,10 +22,8 @@ class LinkedInSocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color active =
-        activeColor ?? const Color(0xFF0A66C2);
-    final Color inactive =
-        inActiveColor ?? Colors.black54;
+    final Color active = activeColor ?? const Color(0xFF0A66C2);
+    final Color inactive = inActiveColor ?? Colors.black54;
 
     return Expanded(
       child: Material(
@@ -35,24 +33,27 @@ class LinkedInSocialButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(4),
           splashColor: active.withValues(alpha: 0.15),
           highlightColor: inactive.withValues(alpha: 0.05),
+
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+            padding: const EdgeInsets.only(top:4.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   isActive ? activeIcon : inactiveIcon,
-                  color: isActive ? active : inactive,
                   size: 20,
+                  color: isActive ? active : inactive,
                 ),
-                const SizedBox(height: 3),
+
+                const SizedBox(width: 4),
+
                 Text(
                   label,
                   style: TextStyle(
-                    fontSize: 11,
-                    color: isActive ? active : inactive,
+                    fontSize: 12,
                     fontWeight:
-                    isActive ? FontWeight.bold : FontWeight.w500,
+                    isActive ? FontWeight.w600 : FontWeight.w500,
+                    color: isActive ? active : inactive,
                   ),
                 ),
               ],
