@@ -13,7 +13,7 @@ class PostHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,7 +23,7 @@ class PostHeader extends StatelessWidget {
                 ? NetworkImage(post.author.profileImage)
                 : AssetImage(post.author.profileImage) as ImageProvider,
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 12),
 
           Expanded(
             child: Column(
@@ -32,8 +32,9 @@ class PostHeader extends StatelessWidget {
                 Text(
                   post.author.name,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    color: Colors.black87,
                   ),
                 ),
 
@@ -43,7 +44,8 @@ class PostHeader extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey.shade600,
+                    height: 1.2,
+                    color: Colors.grey.shade700,
                   ),
                 ),
 
@@ -53,14 +55,14 @@ class PostHeader extends StatelessWidget {
                     formatPostTime(post.time),
                       style: TextStyle(
                         fontSize: 11,
-                        color: Colors.grey.shade500,
+                        color: Colors.grey.shade600,
                       ),
                     ),
                     const SizedBox(width: 4),
                     Icon(
                       Icons.public,
-                      size: 13,
-                      color: Colors.grey,
+                      size: 12,
+                      color: Colors.grey.shade600,
                     ),
                   ],
                 ),
@@ -68,8 +70,14 @@ class PostHeader extends StatelessWidget {
             ),
           ),
 
-          IconButton(
-            icon: const Icon(Icons.more_vert,size: 20,),
+        IconButton(
+          visualDensity: VisualDensity.compact,
+          splashRadius: 20,
+          icon: Icon(
+            Icons.more_vert,
+            size: 20,
+            color: Colors.grey.shade700,
+          ),
             onPressed: () async {
               final result = await openPostMenu(context);
               // for now just debug

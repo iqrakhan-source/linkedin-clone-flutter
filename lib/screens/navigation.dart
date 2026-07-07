@@ -21,23 +21,17 @@ class _navigation extends State<navigation> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const MyNetworkScreen(),
-    const PostScreen(),
+   // const PostScreen(),
 
-    Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      body: LinkedInListScreen(
+     LinkedInListScreen(
         pageContext: 'Notification',
         filters: const ['All', 'My posts', 'Mentions', 'Jobs'],
       ),
-    ),
 
-    Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      body: LinkedInListScreen(
+LinkedInListScreen(
         pageContext: 'Jobs',
         filters: const ['Preferance', 'Job Tracker', 'Post a free job', 'Career insight'],
       ),
-    ),
   ];
 
   @override
@@ -149,7 +143,7 @@ class _navigation extends State<navigation> {
         ),
       ),
       body: IndexedStack(
-        index: _currentindex,
+        index: _currentindex > 2 ? _currentindex - 1 : _currentindex,
         children: _pages,
       ),
 
@@ -163,6 +157,16 @@ class _navigation extends State<navigation> {
         selectedFontSize: 11,
         unselectedFontSize: 11,
         onTap: (index) {
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const PostScreen(),
+              ),
+            );
+            return;
+          }
+
           setState(() {
             _currentindex = index;
           });

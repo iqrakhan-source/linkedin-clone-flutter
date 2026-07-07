@@ -4,7 +4,6 @@ import 'connection_card.dart';
 
 class ConnectionsSection extends StatelessWidget {
   const ConnectionsSection({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,28 +32,13 @@ class ConnectionsSection extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-
-              TextButton.icon(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.account_circle_rounded,
-                  size: 20,
-                ),
-                label: const Text("Connect"),
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.blue,
-                  padding: EdgeInsets.zero,
-                  minimumSize: const Size(0, 0),
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-              ),
             ],
           ),
 
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
 
           SizedBox(
-            height: 245,
+            height: 265,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: connectionsDummyData.length,

@@ -29,10 +29,10 @@ class GamesSection extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
 
           SizedBox(
-            height: 150,
+            height: 158,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: gamesDummyData.length,

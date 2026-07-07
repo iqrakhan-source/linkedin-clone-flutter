@@ -52,8 +52,8 @@ class _Posts extends State<PostCard>{
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      margin: const EdgeInsets.only(bottom: 8.0),
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      margin: const EdgeInsets.only(bottom:10),
+      padding: const EdgeInsets.only(top: 12, bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -78,9 +78,11 @@ class _Posts extends State<PostCard>{
           // Image
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: Image.network(
-              widget.post.img,
-              fit: BoxFit.cover,
+            child: ClipRRect(
+              child: Image.network(
+                widget.post.img,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
 
@@ -122,14 +124,9 @@ class _Posts extends State<PostCard>{
             onSend: () => openSendSheet(context),
             likes: _likeCount,
             comments: _comments.length,
-            //b reposts: widget.post.reposts,
             reposts: _repostCount,
           ),
 
-          //comment list
-        /*  CommentList(
-            comments: _comments,
-          ),*/
         ],
       ),
     );

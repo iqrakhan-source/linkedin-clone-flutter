@@ -58,7 +58,7 @@ class PostActions extends StatelessWidget {
           child: LinkedInSocialButton(
             inactiveIcon: Icons.repeat,
             activeIcon: Icons.repeat,
-            label: " $reposts ",
+            label: "$reposts",
             isActive: false,
             onTap: onRepost,
           ),

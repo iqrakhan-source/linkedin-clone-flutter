@@ -38,7 +38,7 @@ List<PostModel> posts = <PostModel>[
       comments: 54,
       isLikeCurrentUser: true,
       reposts: 22,
-      time: DateTime.now().subtract(const Duration(minutes: 12)),),
+      time: DateTime.now().subtract(const Duration(minutes: 12)), activityText: '',),
   PostModel(
       author: cam,
       img: "https://picsum.photos/500?random=5",
@@ -47,7 +47,7 @@ List<PostModel> posts = <PostModel>[
       comments: 74,
       isLikeCurrentUser: true,
       reposts: 44,
-time: DateTime.now().subtract(const Duration(hours: 2))),
+time: DateTime.now().subtract(const Duration(hours: 2)), activityText: ''),
   PostModel(
       author: bethy,
       img: "https://picsum.photos/500?random=6",
@@ -56,4 +56,4 @@ time: DateTime.now().subtract(const Duration(hours: 2))),
       comments: 64,
       isLikeCurrentUser: true,
       reposts: 23,
-time: DateTime.now().subtract(const Duration(days: 1)),)];
+time: DateTime.now().subtract(const Duration(days: 1)), activityText: '',)];

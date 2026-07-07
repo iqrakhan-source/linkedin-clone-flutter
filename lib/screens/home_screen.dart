@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:linkednc/screens/profile/Activity_Banner.dart';
 import 'package:linkednc/screens/profile/post_card.dart';
 
 import 'package:linkednc/utils/dummy/dummy_data.dart';
@@ -21,8 +22,17 @@ class _HomeScreen extends State<HomeScreen>{
         //physics: const NeverScrollableScrollPhysics(),
         itemCount: posts.length,
         itemBuilder: (context, index) {
-          return PostCard(
-            post: posts[index],
+          return Column(
+            children: [
+              if (index != 0)
+                ActivityBanner(
+                  text: "${posts[index - 1].author} liked this",
+                ),
+
+              PostCard(
+                post: posts[index],
+              ),
+            ],
           );
         },
       )

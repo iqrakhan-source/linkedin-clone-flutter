@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import '../../../models/grow/connection_model.dart';
 
-class ConnectionCard extends StatelessWidget {
+class ConnectionCard extends StatefulWidget {
   final ConnectionModel connection;
 
   const ConnectionCard({
     super.key,
     required this.connection,
   });
+
+  @override
+  State<ConnectionCard> createState() => _ConnectionCardState();
+}
+
+class _ConnectionCardState extends State<ConnectionCard> {
+  bool isConnected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +40,7 @@ class ConnectionCard extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 34),
+              const SizedBox(height: 28),
 
               Expanded(
                 child: Padding(
@@ -41,7 +48,7 @@ class ConnectionCard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        connection.name,
+                        widget.connection.name,
                         textAlign: TextAlign.center,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -54,7 +61,7 @@ class ConnectionCard extends StatelessWidget {
                       const SizedBox(height: 6),
 
                       Text(
-                        connection.headline,
+                        widget.connection.headline,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -67,7 +74,7 @@ class ConnectionCard extends StatelessWidget {
                       const SizedBox(height: 8),
 
                       Text(
-                        "${connection.mutualConnections} mutual connections",
+                        "${widget.connection.mutualConnections} mutual connections",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 11,
@@ -75,20 +82,27 @@ class ConnectionCard extends StatelessWidget {
                         ),
                       ),
 
-                      const SizedBox(height: 14),
+                      const SizedBox(height: 6),
                       const Spacer(),
 
 
                       SizedBox(
                         width: double.infinity,
                         child: OutlinedButton.icon(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.add,
+                          onPressed: () {
+                            setState(() {
+                              isConnected = !isConnected;
+                            });
+                          },
+                          icon: Icon(
+                            isConnected ? Icons.timelapse : Icons.add,
                             size: 18,
                           ),
-                          label: Text(connection.actionText),
+                          label: Text(
+                            isConnected ? "Pending" : "Connect",
+                          ),
                           style: OutlinedButton.styleFrom(
+                            minimumSize: const Size(double.infinity, 36),
                             foregroundColor: Colors.blue.shade700,
                             side: BorderSide(
                               color: Colors.blue.shade700,

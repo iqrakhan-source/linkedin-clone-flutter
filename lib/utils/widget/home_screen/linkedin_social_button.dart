@@ -23,41 +23,40 @@ class LinkedInSocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color active = activeColor ?? const Color(0xFF0A66C2);
-    final Color inactive = inActiveColor ?? Colors.black54;
+    final Color inactive = inActiveColor ??const Color(0xFF666666);
 
-    return Expanded(
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(4),
-          splashColor: active.withValues(alpha: 0.15),
-          highlightColor: inactive.withValues(alpha: 0.05),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        splashColor: active.withValues(alpha: 0.08),
+        highlightColor: inactive.withValues(alpha: 0.05),
 
-          child: Padding(
-            padding: const EdgeInsets.only(top:4.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  isActive ? activeIcon : inactiveIcon,
-                  size: 20,
+        child: Padding(
+          padding: const EdgeInsets.only(top:4.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                isActive ? activeIcon : inactiveIcon,
+                size: 20,
+                color: isActive ? active : inactive,
+              ),
+
+              const SizedBox(width: 4),
+
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight:
+                  isActive ? FontWeight.w600 : FontWeight.w500,
                   color: isActive ? active : inactive,
                 ),
-
-                const SizedBox(width: 4),
-
-                Text(
-                  label,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight:
-                    isActive ? FontWeight.w600 : FontWeight.w500,
-                    color: isActive ? active : inactive,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

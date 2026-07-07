@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../models/grow/connection_model.dart';
+import '../../utils/widget/Invitation_Manager/Invitation_manager.dart';
 import '../../utils/widget/grow/Connection_card.dart';
 import '../../utils/widget/grow/Connection_section.dart';
 import '../../utils/widget/grow/games_section.dart';
+import 'Manage_my_network.dart';
 
 
 class Growscreen extends StatefulWidget {
@@ -135,7 +137,9 @@ class _Growscreen extends State<Growscreen> {
             children: [
               // 1. Invitation Action Button
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => InvitationManager(),));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
@@ -176,7 +180,14 @@ class _Growscreen extends State<Growscreen> {
 
               // 3. Manage My Network Action Button
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ManageNetworkScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.black,
@@ -187,7 +198,10 @@ class _Growscreen extends State<Growscreen> {
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-                    side: BorderSide(color: Colors.grey.shade300, width: 1),
+                    side: BorderSide(
+                      color: Colors.grey.shade300,
+                      width: 1,
+                    ),
                   ),
                 ),
                 child: const Row(
@@ -227,7 +241,7 @@ class _Growscreen extends State<Growscreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Manage My Network",
+                      "Suggested for you",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -247,7 +261,7 @@ class _Growscreen extends State<Growscreen> {
                             crossAxisSpacing: 12,
                             mainAxisSpacing: 12,
                            // childAspectRatio: 0.50,
-                              mainAxisExtent: 245
+                              mainAxisExtent: 300
                           ),
                         itemBuilder: (context, index) {
                           return ConnectionCard(

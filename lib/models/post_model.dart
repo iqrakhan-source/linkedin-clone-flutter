@@ -9,7 +9,7 @@ class PostModel {
  final int reposts;
  final bool isLikeCurrentUser;
  final DateTime time;
-
+ final String activityText;
  PostModel({
   required this.author,
   required this.img,
@@ -18,6 +18,7 @@ class PostModel {
   required this.comments,
   required this.isLikeCurrentUser,
   required this.reposts,
-  required this.time
+  required this.time,
+  required this.activityText
  });
 }

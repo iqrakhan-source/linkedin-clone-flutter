@@ -13,18 +13,21 @@ class GameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 130,
-      padding: const EdgeInsets.all(12),
+      width: 140,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey.shade50,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey.shade200),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: const Color(0xFFE0E0E0),
+          width: 0.8,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: game.color.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(6),
@@ -43,8 +46,9 @@ class GameCard extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              fontWeight: FontWeight.bold,
               fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: Colors.black87,
             ),
           ),
 
@@ -53,8 +57,9 @@ class GameCard extends StatelessWidget {
           Text(
             "Daily Game",
             style: TextStyle(
-              fontSize: 11,
-              color: Colors.grey.shade600,
+              fontSize: 12,
+              height: 1.2,
+              color: Colors.grey.shade700,
             ),
           ),
         ],

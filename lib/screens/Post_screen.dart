@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:linkednc/screens/home_screen.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -15,6 +16,7 @@ class _PostScreenState extends State<PostScreen> {
   void initState() {
     super.initState();
     // Watch text entry changes so we can enable/disable the 'Post' button dynamically
+    //addlistener to observe changes and trigger function
     _textController.addListener(() {
       setState(() {
         _canPost = _textController.text.trim().isNotEmpty;
@@ -30,72 +32,71 @@ class _PostScreenState extends State<PostScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+      toolbarHeight: 76,
+      elevation: 0,
+      leading: IconButton(
+        icon: const Icon(
+          Icons.close,
+          size: 24,
+          color: Colors.black87,
+        ),
+        onPressed: () => Navigator.pop(context),
+      ),
+      titleSpacing: 0,
+      title: Row(
+        children: [
+          const CircleAvatar(
+            radius: 20,
+            backgroundImage: AssetImage("assets/images/profileman.png"),
+          ),
+          const SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 2,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.public, size: 13),
+                    SizedBox(width: 3),
+                    Text(
+                      "Anyone",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Icon(Icons.arrow_drop_down, size: 16),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 12),
+          child: TextButton(
+            onPressed: _canPost ? () {} : null,
+            child: const Text("Post"),
+          ),
+        ),
+      ],
+    ),
       body: Column(
         children: [
-          // --- PROFILE HEADER ROW ---
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  radius: 24,
-                  backgroundColor: Colors.cyan,
-                  backgroundImage: AssetImage("assets/images/profileman.png"),
-                ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Jhonny Doe',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    const SizedBox(height: 4),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                     // width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade400),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  [
-                          Icon(Icons.public, size: 14, color: Colors.black54),
-                          SizedBox(width: 4),
-                          Text('Anyone', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black54)),
-                          Icon(Icons.arrow_drop_down, size: 16, color: Colors.black54),
-
-                          TextButton(
-                            onPressed: _canPost ? () {
-                              // Handle posting logic here
-                              print("Posted text: ${_textController.text}");
-                              _textController.clear();
-                            } : null,
-                            style: TextButton.styleFrom(
-                              backgroundColor: _canPost ? Colors.blue.shade800 : Colors.grey.shade200,
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                            ),
-                            child: Text(
-                              'Post',
-                              style: TextStyle(
-                                color: _canPost ? Colors.white : Colors.grey.shade500,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-
           // --- TEXT BOX CONTENT FEED ---
           Expanded(
             child: Padding(
